@@ -14,7 +14,7 @@ function isElementInArray(searchElement, inputArray) {
   }
   return inputArray
     .map((element) => JSON.stringify(element))
-    .includes((JSON.stringify(searchElement)))
+    .includes(JSON.stringify(searchElement))
 }
 
 const tags = [
