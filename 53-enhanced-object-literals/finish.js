@@ -14,21 +14,23 @@
 
 const photosGallery = (title, dimensions, date) => {
   return {
-    title: title,
-    info: function() {
+    title,
+    date,
+    [dimensions]: true,
+    info() {
       console.log(
-        "Фото "${title}" имеет разрешение ${date}`
+        `Фото "${title}" имеет разрешение ${dimensions}`
       );
     },
-    dimensions: dimensions
-    publishInfo: () => {
+    publishInfo() {
       console.log(
-        `Фото было опубликовано ${Math.floor(
+        `Фото "${title}" было опубликовано ${Math.floor(
           (new Date().getTime() - date.getTime()) / 1000
         )} секунды назад`
       );
-    ,
-    date: date
+    },
+
+
   }
 }
 
@@ -51,4 +53,6 @@ setTimeout(() => myDogPhoto.publishInfo(), 2000)
 к параметрам функции "photosGallery" (например "date")? */
 
 console.log(myDogPhoto[testDimension1]) // true
-console.log(myDogPhoto[testDimension2]) // undefined
+console.log(myDogPhoto[testDimension2]) // undefined 
+
+console.log(Object.keys(myDogPhoto))
